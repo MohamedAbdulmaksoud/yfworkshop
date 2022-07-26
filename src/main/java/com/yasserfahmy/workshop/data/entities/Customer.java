@@ -1,8 +1,9 @@
-package com.yasserfahmy.workshop.entities;
+package com.yasserfahmy.workshop.data.entities;
 
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -14,10 +15,12 @@ public class Customer {
     @Column(name = "customer_id", nullable = false)
     private Integer id;
 
-    @Column(name = "customer_code")
+
+    @Column(name = "customer_code", unique = true)
     @Type(type = "org.hibernate.type.TextType")
     private String customerCode;
 
+    @NotEmpty
     @Column(name = "name", nullable = false)
     @Type(type = "org.hibernate.type.TextType")
     private String name;
@@ -33,8 +36,8 @@ public class Customer {
     @Column(name = "city")
     @Type(type = "org.hibernate.type.TextType")
     private String city;
-
-    @Column(name = "vat_number")
+    // TODO: 26/07/2022 Check validation concept for Regex
+    @Column(name = "vat_number", unique = true)
     @Type(type = "org.hibernate.type.TextType")
     private String vatNumber;
 

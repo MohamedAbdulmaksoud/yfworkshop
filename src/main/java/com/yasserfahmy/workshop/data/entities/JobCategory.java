@@ -1,4 +1,4 @@
-package com.yasserfahmy.workshop.entities;
+package com.yasserfahmy.workshop.data.entities;
 
 public enum JobCategory {
     REPAIR,
